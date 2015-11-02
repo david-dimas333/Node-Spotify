@@ -1,0 +1,89 @@
+<!doctype html>
+
+<html  lang="en" ng-app="scotchTodo">
+<head>
+	<title>Test Task</title>
+    <meta name="description" content="Description of the content of this web page." />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<style>
+		body{ margin:0;padding:0;background: #f4f4f4 }
+	</style>  
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<script src="js/controllers/main.js"></script>
+	<script src="js/services/todos.js"></script>
+	<script src="js/core.js"></script>
+
+</head>
+
+<body ng-controller="mainController">
+	<div class="container">
+		 <div class="section">
+		    <h5>Search artist</h5>				
+			<div class="row">
+				<div class="input-field col s5">
+					<input placeholder="Artistname" id="first_name" type="text" class="validate" ng-model="input_data.artistName">
+					<label for="first_name">Search artist</label>
+		        </div>		        
+		        
+		        <div class="input-field col s5">
+				    <select ng-model="input_data.country">
+						<option value="DK" selected>Denmark</option>
+						<option value="UK">UK</option>
+						<option value="ES">Spain</option>
+						<option value="IT">Italy</option>
+						<option value="DD">Germany</option>
+						<option value="US">US</option>
+					</select>
+				   	<label>Country</label>
+		        </div>
+		      
+			<div class="input-field col s2">
+				<button class="btn waves-effect waves-light" type="button" name="action" ng-click="search(input_data)">Search
+				    <i class="material-icons right">search</i>
+			    </button>
+			</div>
+		</div>
+		<div class="section">
+			<p class="center" ng-show="loading">
+				<span class="fa fa-spinner fa-spin fa-3x"></span>
+			</p>
+		</div>
+	    <div class="section" >
+		    <h5>Result</h5>
+	        <table class="bordered">
+		        <thead>
+					<tr>
+						<th data-field="position">Position</th>
+						<th data-field="cover">Cover</th>
+						<th data-field="artist">artistname</th>
+						<th data-field="track">Trackname</th>
+					</tr>
+				</thead>			
+				<tbody ng-repeat="info in results">
+					<tr>
+						<td>{{info.popularity}}</td>
+						<td>{{info.type}}</td>
+						<td>{{info.artists[0].name}}</td>
+						<td>{{info.name}}</td>
+					</tr>
+				</tbody>
+			</table>			    
+		</div>
+	</div>
+
+<script>
+	$(document).ready(function() {
+	    $('select').material_select();
+	});
+</script>
+
+</body>
+</html>
