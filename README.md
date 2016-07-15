@@ -1,9 +1,10 @@
-# https---github.com-david-dimas333-Node-Spotify-
+# Node-Spotify
 Nodejs
 
 
 NodeJS, AngularJS projects.
+
 1. npm install
-2. node server
+1. node server
 
 This project used Spotify API.
