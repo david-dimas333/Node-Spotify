@@ -8,7 +8,7 @@
     "body-parser": "~1.4.3",
     "express": "~4.6.1",
     "method-override": "~2.1.1",
-    "mongoose": "~3.8.13",
+    "mongoose": "~5.8.11",
     "morgan": "~1.1.1",
     "spotify-web-api-node": "^2.1.0"
   }
